@@ -24,7 +24,26 @@ class TransactionsRepository {
   }
 
   public getBalance(): Balance {
-    // TODO
+    let income = 0
+    let outcome = 0
+    this.transactions.map(t => {
+      if (t.type === 'income') {
+        income += t.value
+      } else if (t.type === 'outcome') {
+        outcome += t.value
+      } else {
+        throw Error('Type invalid for transaction')
+      }
+    })
+    const total = income - outcome
+
+    const balance = {
+      income,
+      outcome,
+      total,
+    }
+
+    return balance
   }
 
   public create({ title, value, type }: CreateTransactionDTO): Transaction {
