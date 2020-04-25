@@ -21,6 +21,7 @@
   },
   "plugins": ["@typescript-eslint", "prettier"],
   "rules": {
+    "semi": ["error", "never"],
     "prettier/prettier": "error",
     "import/extensions": [
       "error",
